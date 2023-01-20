@@ -1,0 +1,27 @@
+$menu-icon-size: 48px;
+
+.m-menu {
+  &__button {
+    display: flex !important;
+    align-items: center;
+    cursor: pointer;
+    width: auto !important;
+    height: auto !important;
+    padding: 0 !important;
+
+    &__icon {
+      width: $menu-icon-size !important;
+      height: $menu-icon-size !important;
+      font-size: $menu-icon-size;
+      line-height: 0.95;
+      color: $medium-gray;
+      transition: color 400ms ease;
+    }
+
+    &:hover {
+      & .m-menu__button__icon {
+        color: $orange;
+      }
+    }
+  }
+}

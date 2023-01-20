@@ -1,0 +1,37 @@
+@import 'base/variables';
+
+:host {
+  @media only screen {
+    display: grid;
+    grid-template-rows: 57px 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'header'
+      'main';
+    height: 100vh;
+    max-width: 100%;
+    max-height: 100vh;
+  }
+}
+
+#main {
+  @media only screen {
+    grid-area: main;
+    min-width: 0;
+    background-color: $white;
+    z-index: 0;
+  }
+}
+
+#page-content {
+  @media only screen {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.5rem;
+    min-height: calc(100vh - 57px);
+    max-height: calc(100vh - 57px);
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}

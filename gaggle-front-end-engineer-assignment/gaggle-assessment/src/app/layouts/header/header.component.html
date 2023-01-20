@@ -1,0 +1,38 @@
+<header id="header" class="o-header">
+  <div class="o-header__menuLogo">
+    <div class="o-header__menuLogo__menu m-menu">
+      <button
+        class="m-menu__button"
+        mat-icon-button
+        [matMenuTriggerFor]="menu"
+        aria-label="Application menu"
+      >
+        <mat-icon class="m-menu__button__icon">apps</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <span>Menu Item</span>
+        </button>
+        <button mat-menu-item disabled>
+          <span>Menu Item</span>
+        </button>
+        <button mat-menu-item>
+          <span>Menu Item</span>
+        </button>
+      </mat-menu>
+    </div>
+    <div class="o-header__menuLogo__logo">
+      <img src="/assets/logo--Gaggle.svg" alt="Gaggle Logo" />
+    </div>
+  </div>
+  <div class="o-header__actions">
+    <div class="o-header__actions__alert m-headerAlert">
+      <mat-icon class="m-headerAlert__icon -error" filled>warning</mat-icon>
+      <span class="m-headerAlert__message">Save unsuccessful</span>
+    </div>
+    <div class="o-header__actions__status m-statusMessage">
+      <mat-icon class="m-statusMessage__spinner -animate">refresh</mat-icon>
+      <span class="m-statusMessage__message">Retrying...</span>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,75 @@
+@import "base/variables";
+@import "utils/animations";
+
+:host {
+  z-index: 9999;
+
+  grid-area: header;
+  .o-header {
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    background-color: $light-gray;
+
+    &__menuLogo {
+      display: flex;
+      align-items: center;
+
+      &__menu {
+        margin: 0 4px;
+      }
+
+      &__logo {
+        margin: 0 4px;
+      }
+    }
+
+    &__actions {
+      display: flex;
+      align-items: flex-start;
+      margin: 4px 0;
+    }
+  }
+
+  .m-headerAlert {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+
+    &__icon {
+      $header-alert-icon-size: 16px;
+      width: $header-alert-icon-size;
+      height: $header-alert-icon-size;
+      font-size: $header-alert-icon-size;
+      margin: 0 4px;
+
+      &.-error {
+        color: #ff0000;
+      }
+    }
+  }
+
+  .m-statusMessage {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    margin: 0 12px;
+    padding: 0 0 0 12px;
+    border-left: 1px solid $medium-gray;
+
+    &__spinner {
+      $status-spinner-size: 16px !important;
+      width: $status-spinner-size;
+      height: $status-spinner-size;
+      font-size: $status-spinner-size;
+      animation-name: fullRotate;
+      animation-duration: 1.5s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    &__message {
+      margin: 0 0 0 4px;
+    }
+  }
+}

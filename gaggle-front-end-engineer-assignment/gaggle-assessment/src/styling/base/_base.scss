@@ -1,0 +1,57 @@
+@import "./reset", "./variables";
+
+body,
+html {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+html {
+  overflow-y: auto;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+ul,
+ol {
+  margin: 0 0 1rem;
+  padding: 0;
+  margin-left: 2em;
+  list-style: initial;
+}
+
+ol {
+  list-style: decimal;
+}
+
+button,
+input,
+textarea {
+  line-height: 1.3;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &::-moz-focus-inner,
+  &:focus {
+    outline: none;
+  }
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
+}

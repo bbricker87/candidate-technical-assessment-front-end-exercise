@@ -1,0 +1,85 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use "@angular/material" as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+$navy-palette: (
+  50: #e8ebf6,
+  100: #c5cce8,
+  200: #9faad9,
+  300: #7989c9,
+  400: #5b6fbe,
+  500: #3d56b3,
+  600: #374ea9,
+  700: #2e449d,
+  800: #263a91,
+  900: #18297b,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  ),
+);
+
+$orange-palette: (
+  50: #fff8e3,
+  100: #ffecb8,
+  200: #ffe18b,
+  300: #ffd65f,
+  400: #ffcb42,
+  500: #fec335,
+  600: #fdb530,
+  700: #fca32d,
+  800: #fb942a,
+  900: #f87726,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: rgba(black, 0.87),
+    500: rgba(black, 0.87),
+    600: rgba(black, 0.87),
+    700: rgba(black, 0.87),
+    800: rgba(black, 0.87),
+    900: rgba(black, 0.87),
+  ),
+);
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$gaggle-assessment-primary: mat.define-palette($navy-palette, 600);
+$gaggle-assessment-accent: mat.define-palette($orange-palette, 600);
+
+// The warn palette is optional (defaults to red).
+$gaggle-assessment-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$gaggle-assessment-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $gaggle-assessment-primary,
+      accent: $gaggle-assessment-accent,
+      warn: $gaggle-assessment-warn,
+    ),
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($gaggle-assessment-theme);
