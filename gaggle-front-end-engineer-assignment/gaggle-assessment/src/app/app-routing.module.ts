@@ -3,28 +3,31 @@ import { Routes, RouterModule, ExtraOptions } from '@angular/router';
 import { AuthGuard } from '@app/guards/auth.guard';
 import { MainLayoutComponent } from '@app/layouts/main-layout/main-layout.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import { LoginComponent } from './components/login/login.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
   {
     path: '',
     component: MainLayoutComponent,
     canActivate: [AuthGuard],
-    loadChildren: () =>
-      import('./modules/main/main.module').then((m) => m.MainModule),
+    children: [
+      {
+        path: '',
+        component: HomeComponent,
+      },
+    ],
   },
   {
     path: 'auth',
     component: AuthLayoutComponent,
-    loadChildren: () =>
-      import('./modules/auth/auth.module').then((m) => m.AuthModule),
+    children: [
+      {
+        path: '',
+        component: LoginComponent,
+      },
+    ],
   },
-  {
-    path: 'login',
-    redirectTo: '/auth/login',
-    pathMatch: 'full',
-  },
-  // Fallback when no prior routes is matched
-  { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
 export const routingConfiguration: ExtraOptions = {

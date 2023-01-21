@@ -1,0 +1,25 @@
+<div class="a-formField" [class.-focus]="hasFocus" [class.-error]="!isValid">
+  <label class="a-formField__label" [for]="id">{{ label }}</label>
+  <mat-icon class="a-formField__errorIcon" *ngIf="error.length > 0"
+    >warning</mat-icon
+  >
+  <input
+    class="a-formField__input"
+    [id]="id"
+    [type]="type"
+    [placeholder]="placeholder"
+    [ariaLabel]="label"
+    [value]="value"
+    (focus)="onFocus()"
+    (blur)="onBlur()"
+  />
+  <mat-icon
+    class="a-formField__clear"
+    [class.-hidden]="value.length === 0"
+    (click)="clearValue()"
+    >close</mat-icon
+  >
+  <span class="a-formField__errorMessage" *ngIf="error.length > 0">{{
+    error
+  }}</span>
+</div>

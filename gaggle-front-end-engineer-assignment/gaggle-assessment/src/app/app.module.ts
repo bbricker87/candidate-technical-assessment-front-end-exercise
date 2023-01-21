@@ -10,6 +10,9 @@ import { AuthLayoutComponent } from '@app/layouts/auth-layout/auth-layout.compon
 
 import { MaterialModule } from './shared/material.module';
 import { ComponentsModule } from './shared/components.module';
+import { LoginComponent } from './components/login/login.component';
+import { HomeComponent } from './components/home/home.component';
+import { FormFieldComponent } from './components/form-field/form-field.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +20,9 @@ import { ComponentsModule } from './shared/components.module';
     AuthLayoutComponent,
     HeaderComponent,
     MainLayoutComponent,
+    LoginComponent,
+    HomeComponent,
+    FormFieldComponent,
   ],
   imports: [
     BrowserModule,
