@@ -1,0 +1,40 @@
+<div class="m-buttonGroup__item a-actionButton" *ngFor="let button of buttons">
+  <button
+    mat-raised-button
+    color="white"
+    class="a-actionButton__button"
+    [class.-chevronLeft]="button.hasLeftChevron"
+    [class.-chevronRight]="button.hasRightChevron || button.hasDropdown"
+    [class.-xl]="button.size === 'xl'"
+  >
+    <mat-icon class="a-actionButton__button__icon" *ngIf="!!button.icon">{{
+      button.icon
+    }}</mat-icon>
+    <span class="a-actionButton__button__label" *ngIf="!button.icon">{{
+      button.label
+    }}</span>
+    <span
+      class="a-actionButton__button__placeholder"
+      *ngIf="button.placeholder"
+      >{{ button.placeholder }}</span
+    >
+    <mat-icon
+      class="a-actionButton__button__chevronLeft"
+      *ngIf="button.hasLeftChevron"
+      >chevron_left</mat-icon
+    >
+    <mat-icon
+      class="a-actionButton__button__chevronRight"
+      *ngIf="button.hasRightChevron"
+      >chevron_right</mat-icon
+    >
+    <mat-icon
+      class="a-actionButton__button__chevronDown"
+      *ngIf="button.hasDropdown"
+      >keyboard_arrow_down</mat-icon
+    >
+  </button>
+  <span class="a-actionButton__label" *ngIf="!!button.icon">{{
+    button.label
+  }}</span>
+</div>

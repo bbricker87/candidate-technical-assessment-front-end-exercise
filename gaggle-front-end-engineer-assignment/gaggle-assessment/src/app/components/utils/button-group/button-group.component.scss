@@ -1,0 +1,13 @@
+@import "base/variables";
+
+:host(.m-buttonGroup) {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+
+  .m-buttonGroup {
+    &__item {
+      margin: 0 12px 0 0;
+    }
+  }
+}

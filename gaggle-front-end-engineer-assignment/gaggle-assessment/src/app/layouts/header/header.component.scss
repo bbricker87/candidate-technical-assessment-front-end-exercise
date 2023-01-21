@@ -62,10 +62,13 @@
       width: $status-spinner-size;
       height: $status-spinner-size;
       font-size: $status-spinner-size;
-      animation-name: fullRotate;
-      animation-duration: 1.5s;
-      animation-timing-function: linear;
-      animation-iteration-count: infinite;
+
+      &.-animate {
+        animation-name: fullRotate;
+        animation-duration: 1.5s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+      }
     }
 
     &__message {

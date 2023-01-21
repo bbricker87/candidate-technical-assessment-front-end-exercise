@@ -1,4 +1,4 @@
-@import 'base/variables';
+@import "base/variables";
 
 :host {
   @media only screen {
@@ -6,8 +6,8 @@
     grid-template-rows: 57px 1fr;
     grid-template-columns: 1fr;
     grid-template-areas:
-      'header'
-      'main';
+      "header"
+      "main";
     height: 100vh;
     max-width: 100%;
     max-height: 100vh;
@@ -27,7 +27,7 @@
   @media only screen {
     display: flex;
     flex-wrap: wrap;
-    padding: 0.5rem;
+    padding: 0;
     min-height: calc(100vh - 57px);
     max-height: calc(100vh - 57px);
     max-width: 100%;

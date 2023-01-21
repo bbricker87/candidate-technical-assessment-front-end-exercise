@@ -1,0 +1,14 @@
+@import "base/variables";
+
+:host {
+  .o-pageActions {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 8px 24px 2px;
+
+    background-color: $light-gray;
+    &__buttons {
+    }
+  }
+}

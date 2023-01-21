@@ -8,10 +8,8 @@ import { MainLayoutComponent } from '@app/layouts/main-layout/main-layout.compon
 import { HeaderComponent } from '@app/layouts/header/header.component';
 import { AuthLayoutComponent } from '@app/layouts/auth-layout/auth-layout.component';
 
-import { MatMenuModule } from '@angular/material/menu';
-import { MatIconModule } from '@angular/material/icon';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatButtonModule } from '@angular/material/button';
+import { MaterialModule } from './shared/material.module';
+import { ComponentsModule } from './shared/components.module';
 
 @NgModule({
   declarations: [
@@ -23,10 +21,8 @@ import { MatButtonModule } from '@angular/material/button';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatMenuModule,
-    MatIconModule,
-    MatButtonModule,
-    MatProgressSpinnerModule,
+    ComponentsModule,
+    MaterialModule,
     BrowserAnimationsModule,
   ],
   providers: [],
