@@ -10,14 +10,8 @@
         <mat-icon class="m-menu__button__icon">apps</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item>
-          <span>Menu Item</span>
-        </button>
-        <button mat-menu-item disabled>
-          <span>Menu Item</span>
-        </button>
-        <button mat-menu-item>
-          <span>Menu Item</span>
+        <button mat-menu-item (click)="logout()">
+          <span>Sign out</span>
         </button>
       </mat-menu>
     </div>

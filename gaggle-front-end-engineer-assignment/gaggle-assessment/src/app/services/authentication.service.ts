@@ -1,34 +1,72 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
-import { Auth } from '@app/models/Auth';
-
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
-  login(email: string, password: string) {
-    // return this.http.post<any>(`${environment.apiUrl}/auth`, { email, password })
-    //   .pipe(map(auth => {
-    //     // login successful if there's a jwt token in the response
-    //     if (auth && auth.token) {
-    //       // store user details and jwt token in local storage to keep user logged in between page refreshes
-    //       localStorage.setItem('currentAuth', JSON.stringify(auth));
-    //       this.currentAuthSubject.next(auth);
+  private validLogins = new Map<string, string>();
+  private currentUserSubject: BehaviorSubject<string>;
+  public currentUser: Observable<string>;
 
-    //       // set auth for ember
-    //       const emberAuth = {
-    //         authenticated: {
-    //           authenticator: 'authenticator:custom',
-    //           token: auth.token
-    //         }
-    //       };
-    //       localStorage.setItem('ember_simple_auth-session', JSON.stringify(emberAuth));
-    //     }
+  constructor() {
+    const lsValidLogins = JSON.parse(
+      localStorage.getItem('gaggleValidLogins') ?? '{}'
+    );
 
-    return true;
-    // }));
+    if (!lsValidLogins || Object.keys(lsValidLogins).length === 0) {
+      this.validLogins.set('sampleuser', 'password1');
+      this.validLogins.set('sampleuser2', 'password2');
+      this.validLogins.set('sampleuser3', 'password3');
+
+      localStorage.setItem(
+        'gaggleValidLogins',
+        JSON.stringify([...this.validLogins.entries()])
+      );
+    } else {
+      lsValidLogins.forEach((credentials: string[]) =>
+        this.validLogins.set(credentials[0], credentials[1])
+      );
+    }
+
+    const lsAuth = localStorage.getItem('gaggleAuth');
+    const validAuth = this.validLogins.has(lsAuth ?? '');
+
+    if (lsAuth && validAuth) {
+      this.currentUserSubject = new BehaviorSubject(lsAuth);
+    } else {
+      this.currentUserSubject = new BehaviorSubject('');
+    }
+
+    this.currentUser = this.currentUserSubject.asObservable();
+  }
+
+  public get currentAuthValue(): string {
+    return this.currentUserSubject.value;
+  }
+
+  login(username: string, password: string) {
+    if (this.validLogins.has(username)) {
+      if (password !== this.validLogins.get(username)) {
+        return { success: false, message: 'Password is incorrect' };
+      } else {
+        this.currentUserSubject.next(username);
+        localStorage.setItem('gaggleAuth', username);
+        return { success: true };
+      }
+    } else {
+      return { success: false, message: 'Username not found' };
+    }
+  }
+
+  register(username: string, password: string) {
+    this.validLogins.set(username, password);
+
+    localStorage.setItem(
+      'gaggleValidLogins',
+      JSON.stringify([...this.validLogins.entries()])
+    );
   }
 
   logout() {
-    localStorage.removeItem('currentAuth');
+    localStorage.removeItem('gaggleAuth');
   }
 }

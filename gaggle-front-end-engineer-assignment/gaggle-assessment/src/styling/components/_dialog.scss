@@ -1,0 +1,54 @@
+$dialog-sidebar-width: 96px;
+
+.gaggle-app {
+  & .mat-mdc-dialog-container {
+    & .mdc-dialog {
+      &__content {
+        display: flex;
+        padding: 0;
+
+        &__sidebar {
+          width: $dialog-sidebar-width;
+          padding: 20px 8px;
+          background-color: $light-gray;
+
+          &__icon {
+            margin: 20px 8px;
+            font-size: 48px;
+            text-align: center;
+          }
+        }
+
+        &__main {
+          flex: 1 0 calc(100% - $dialog-sidebar-width);
+          padding: 40px 48px 48px;
+          background-color: darken($white, 2%);
+          border-left: 1px solid darken($light-gray, 5%);
+
+          &__title {
+            font-family: "Roboto", Arial, sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            margin: 0 0 14px;
+          }
+        }
+      }
+      &__actions {
+        display: flex;
+        justify-content: space-between;
+        padding: 16px 24px;
+        border-top: 1px solid $medium-gray;
+
+        &__item {
+          font-size: 14px;
+          font-weight: 500;
+          color: $navy;
+
+          &.-close {
+            color: $dark-gray;
+          }
+        }
+      }
+    }
+  }
+}

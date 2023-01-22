@@ -1,4 +1,7 @@
 <form [formGroup]="loginForm" class="m-loginForm">
+  <div class="m-loginForm__error" *ngIf="loginError && loginError.length > 0">
+    {{ loginError }}
+  </div>
   <gaggle-form-field
     class="m-loginForm__field"
     type="text"
@@ -25,7 +28,9 @@
     color="primary"
     class="m-loginForm__button"
     [disabled]="loginForm.invalid"
+    (click)="login()"
   >
     Sign On
   </button>
 </form>
+<router-outlet></router-outlet>

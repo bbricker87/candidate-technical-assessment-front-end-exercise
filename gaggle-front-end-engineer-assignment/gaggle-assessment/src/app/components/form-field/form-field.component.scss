@@ -1,6 +1,8 @@
-@import 'base/variables';
+@import "base/variables";
 
 :host {
+  width: 100%;
+
   .a-formField {
     position: relative;
     background-color: $white;
@@ -70,20 +72,20 @@
     }
 
     &:after {
-      content: '';
-      display: block;  
+      content: "";
+      display: block;
       border-bottom: 2px solid transparent;
       position: absolute;
       left: 8px;
       right: 8px;
       bottom: 2px;
       transition: border 500ms ease;
-      }
+    }
 
     &.-focus {
-      &:after {  
+      &:after {
         border-bottom: 2px solid $navy;
-        }
+      }
     }
 
     &.-valid {
@@ -92,7 +94,8 @@
 
     &.-error {
       & .a-formField {
-        &__input,&__clear {
+        &__input,
+        &__clear {
           border: 1px inset rgba(255, 0, 0, 0.25);
           background-color: rgba(255, 0, 0, 0.25);
         }

@@ -1,9 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import {
-  AbstractControl,
-  FormControl,
-  FormGroupDirective,
-} from '@angular/forms';
+import { Component, Input } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'gaggle-form-field',
@@ -19,12 +15,6 @@ export class FormFieldComponent {
   @Input() placeholder: string = '';
   @Input() control: FormControl = new FormControl('');
   @Input() patternError?: string = '';
-
-  ngOnInit(): void {}
-
-  ngOnChanges() {
-    console.log(this.control);
-  }
 
   onFocus = () => {
     this.hasFocus = true;

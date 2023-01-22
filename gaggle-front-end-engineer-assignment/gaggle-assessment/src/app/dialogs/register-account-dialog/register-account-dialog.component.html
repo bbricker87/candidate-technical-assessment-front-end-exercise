@@ -1,0 +1,38 @@
+<mat-dialog-content>
+  <div class="mdc-dialog__content__sidebar">
+    <div class="mdc-dialog__content__sidebar__icon">🐣</div>
+  </div>
+  <div class="mdc-dialog__content__main">
+    <h4 class="mdc-dialog__content__main__title">New Account</h4>
+    <form [formGroup]="registerForm">
+      <gaggle-form-field
+        class="m-registerForm__field"
+        type="text"
+        label="Username"
+        id="#username"
+        [control]="username"
+      ></gaggle-form-field>
+      <gaggle-form-field
+        class="m-registerForm__field"
+        type="password"
+        label="Password"
+        id="#password"
+        [control]="password"
+        patternError="must only include numbers and digits"
+      ></gaggle-form-field>
+      <gaggle-form-field
+        class="m-registerForm__field"
+        type="email"
+        label="Email"
+        id="#email"
+        [control]="email"
+      ></gaggle-form-field>
+    </form>
+  </div>
+</mat-dialog-content>
+<div mat-dialog-actions>
+  <a class="mdc-dialog__actions__item -close" [mat-dialog-close]>Cancel </a>
+  <a class="mdc-dialog__actions__item" (click)="register()">
+    Register Account
+  </a>
+</div>

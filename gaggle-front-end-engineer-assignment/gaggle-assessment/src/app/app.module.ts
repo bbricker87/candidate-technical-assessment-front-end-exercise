@@ -15,6 +15,7 @@ import { HomeComponent } from './components/home/home.component';
 import { FormFieldComponent } from './components/form-field/form-field.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterAccountComponent } from './components/auth/register-account/register-account.component';
+import { RegisterAccountDialogComponent } from './dialogs/register-account-dialog/register-account-dialog.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { RegisterAccountComponent } from './components/auth/register-account/reg
     HomeComponent,
     FormFieldComponent,
     RegisterAccountComponent,
+    RegisterAccountDialogComponent,
   ],
   imports: [
     BrowserModule,

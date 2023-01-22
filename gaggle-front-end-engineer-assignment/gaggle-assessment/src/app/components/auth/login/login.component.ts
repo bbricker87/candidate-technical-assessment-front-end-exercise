@@ -5,6 +5,8 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthenticationService } from '@app/services/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -13,8 +15,14 @@ import {
 })
 export class LoginComponent {
   public loginForm: FormGroup = new FormGroup([]);
+  public loginError: string = '';
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private authService: AuthenticationService
+  ) {}
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -37,5 +45,26 @@ export class LoginComponent {
 
   get password() {
     return this.loginForm.controls['password'] as FormControl;
+  }
+
+  login() {
+    if (this.loginForm.valid) {
+      const result = this.authService.login(
+        this.username.value,
+        this.password.value
+      );
+
+      console.log(result);
+
+      if (result.success) {
+        const returnUrl =
+          this.route.snapshot.queryParamMap.get('returnUrl') ?? '';
+
+        console.log(`navigating to ${returnUrl}`);
+        this.router.navigate([returnUrl]);
+      } else {
+        this.loginError = result.message ?? '';
+      }
+    }
   }
 }

@@ -21,7 +21,7 @@
   />
   <mat-icon
     class="a-formField__clear"
-    [class.-hidden]="!control?.value || control?.value?.length === 0"
+    [class.-hidden]="!control || !control.value || control.value.length === 0"
     (click)="clearValue()"
     >close</mat-icon
   >
@@ -39,5 +39,6 @@
       {{ control.errors["maxlength"].requiredLength }} characters
     </li>
     <li *ngIf="control.errors['pattern']">{{ label }} {{ patternError }}</li>
+    <li *ngIf="control.errors['email']">{{ label }} must be a valid email</li>
   </ul>
 </div>
