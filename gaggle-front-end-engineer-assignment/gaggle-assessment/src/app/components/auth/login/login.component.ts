@@ -25,18 +25,21 @@ export class LoginComponent {
   ) {}
 
   ngOnInit() {
-    this.loginForm = this.formBuilder.group({
-      username: new FormControl('', [
-        Validators.required,
-        Validators.minLength(3),
-        Validators.maxLength(30),
-      ]),
-      password: new FormControl('', [
-        Validators.required,
-        Validators.minLength(8),
-        Validators.pattern(`^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$`),
-      ]),
-    });
+    this.loginForm = this.formBuilder.group(
+      {
+        username: new FormControl('', [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(30),
+        ]),
+        password: new FormControl('', [
+          Validators.required,
+          Validators.minLength(8),
+          Validators.pattern(`^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$`),
+        ]),
+      },
+      { updateOn: 'blur' }
+    );
   }
 
   get username() {

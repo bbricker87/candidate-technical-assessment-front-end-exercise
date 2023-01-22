@@ -6,6 +6,7 @@ import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component
 import { LoginComponent } from './components/auth/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { RegisterAccountComponent } from './components/auth/register-account/register-account.component';
+import { ForgotPasswordComponent } from './components/auth/forgot-password/forgot-password.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,10 @@ const routes: Routes = [
           {
             path: 'register',
             component: RegisterAccountComponent,
+          },
+          {
+            path: 'forgot-password',
+            component: ForgotPasswordComponent,
           },
         ],
       },

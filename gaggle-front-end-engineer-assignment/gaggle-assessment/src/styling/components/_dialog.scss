@@ -47,6 +47,10 @@ $dialog-sidebar-width: 96px;
           &.-close {
             color: $dark-gray;
           }
+
+          &:hover {
+            color: $orange;
+          }
         }
       }
     }

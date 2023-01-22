@@ -16,6 +16,8 @@ import { FormFieldComponent } from './components/form-field/form-field.component
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterAccountComponent } from './components/auth/register-account/register-account.component';
 import { RegisterAccountDialogComponent } from './dialogs/register-account-dialog/register-account-dialog.component';
+import { ForgotPasswordComponent } from './components/auth/forgot-password/forgot-password.component';
+import { ForgotPasswordDialogComponent } from './dialogs/forgot-password-dialog/forgot-password-dialog.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { RegisterAccountDialogComponent } from './dialogs/register-account-dialo
     FormFieldComponent,
     RegisterAccountComponent,
     RegisterAccountDialogComponent,
+    ForgotPasswordComponent,
+    ForgotPasswordDialogComponent,
   ],
   imports: [
     BrowserModule,

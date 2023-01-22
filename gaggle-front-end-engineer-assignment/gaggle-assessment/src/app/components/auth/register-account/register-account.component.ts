@@ -26,10 +26,13 @@ export class RegisterAccountComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      if (result.success) {
-        this.snackbar.open('Account registered! You may now sign on.');
+      if (result?.success) {
+        this.snackbar.open('Account registered! You may now sign on.', '', {
+          duration: 3000,
+        });
       }
 
+      console.log('Navigate to auth');
       this.router.navigate(['/auth']);
     });
   }

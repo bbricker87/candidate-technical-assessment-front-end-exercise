@@ -30,6 +30,13 @@
     &__checkbox {
       align-self: flex-start;
     }
+
+    &__error {
+      font-size: 14px;
+      font-weight: 500;
+      color: red;
+      margin: 0 0 8px;
+    }
   }
 
   .a-checkbox {
