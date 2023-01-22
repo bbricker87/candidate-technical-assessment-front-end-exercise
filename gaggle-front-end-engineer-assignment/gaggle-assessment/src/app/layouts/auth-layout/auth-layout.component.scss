@@ -1,4 +1,4 @@
-@import 'base/variables';
+@import "base/variables";
 
 :host {
   #main {
@@ -14,7 +14,7 @@
 
     & #page-hero {
       flex: 1 0 50%;
-      background-image: url('/assets/hero-image.png');
+      background-image: url("/assets/hero-image.png");
       background-size: cover;
     }
   }
@@ -29,6 +29,33 @@
     }
     &__content {
       height: 100%;
+    }
+
+    &__links {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      padding: 4px 0;
+      position: absolute;
+      bottom: 48px;
+
+      &__item {
+        display: block;
+        padding: 2px 16px;
+        border-right: 1px solid $medium-gray;
+        font-size: 14px;
+        font-weight: 500;
+        color: $navy;
+
+        &:last-child {
+          border-right: 0;
+        }
+
+        &:hover {
+          color: $orange;
+        }
+      }
     }
   }
 }

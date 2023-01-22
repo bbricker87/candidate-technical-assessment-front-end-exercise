@@ -1,10 +1,12 @@
 <div
   class="a-formField"
   [class.-focus]="hasFocus"
-  [class.-error]="control.invalid"
+  [class.-error]="control.invalid && !control.pristine"
 >
   <label class="a-formField__label" [for]="id">{{ label }}</label>
-  <mat-icon class="a-formField__errorIcon" *ngIf="control && control.errors"
+  <mat-icon
+    class="a-formField__errorIcon"
+    *ngIf="control && control.errors && !control.pristine"
     >warning</mat-icon
   >
   <input
@@ -19,11 +21,14 @@
   />
   <mat-icon
     class="a-formField__clear"
-    [class.-hidden]="control?.value?.length === 0"
+    [class.-hidden]="!control?.value || control?.value?.length === 0"
     (click)="clearValue()"
     >close</mat-icon
   >
-  <ul class="a-formField__errors" *ngIf="control && control.errors">
+  <ul
+    class="a-formField__errors"
+    *ngIf="control && control.errors && !control.pristine"
+  >
     <li *ngIf="control.errors['required']">{{ label }} is required</li>
     <li *ngIf="control.errors['minlength']">
       {{ label }} must be at least

@@ -10,10 +10,11 @@ import { AuthLayoutComponent } from '@app/layouts/auth-layout/auth-layout.compon
 
 import { MaterialModule } from './shared/material.module';
 import { ComponentsModule } from './shared/components.module';
-import { LoginComponent } from './components/login/login.component';
+import { LoginComponent } from './components/auth/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { FormFieldComponent } from './components/form-field/form-field.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RegisterAccountComponent } from './components/auth/register-account/register-account.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     HomeComponent,
     FormFieldComponent,
+    RegisterAccountComponent,
   ],
   imports: [
     BrowserModule,

@@ -53,6 +53,11 @@
       &:hover {
         color: $orange;
       }
+
+      &.-hidden {
+        cursor: default;
+        opacity: 0;
+      }
     }
 
     &__errors {
