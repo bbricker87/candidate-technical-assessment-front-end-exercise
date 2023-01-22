@@ -1,6 +1,10 @@
-<div class="a-formField" [class.-focus]="hasFocus" [class.-error]="!isValid">
+<div
+  class="a-formField"
+  [class.-focus]="hasFocus"
+  [class.-error]="control.invalid"
+>
   <label class="a-formField__label" [for]="id">{{ label }}</label>
-  <mat-icon class="a-formField__errorIcon" *ngIf="error.length > 0"
+  <mat-icon class="a-formField__errorIcon" *ngIf="control && control.errors"
     >warning</mat-icon
   >
   <input
@@ -9,17 +13,26 @@
     [type]="type"
     [placeholder]="placeholder"
     [ariaLabel]="label"
-    [value]="value"
+    [formControl]="control"
     (focus)="onFocus()"
     (blur)="onBlur()"
   />
   <mat-icon
     class="a-formField__clear"
-    [class.-hidden]="value.length === 0"
+    [class.-hidden]="control?.value?.length === 0"
     (click)="clearValue()"
     >close</mat-icon
   >
-  <span class="a-formField__errorMessage" *ngIf="error.length > 0">{{
-    error
-  }}</span>
+  <ul class="a-formField__errors" *ngIf="control && control.errors">
+    <li *ngIf="control.errors['required']">{{ label }} is required</li>
+    <li *ngIf="control.errors['minlength']">
+      {{ label }} must be at least
+      {{ control.errors["minlength"].requiredLength }} characters
+    </li>
+    <li *ngIf="control.errors['maxlength']">
+      {{ label }} cannot have more than
+      {{ control.errors["maxlength"].requiredLength }} characters
+    </li>
+    <li *ngIf="control.errors['pattern']">{{ label }} {{ patternError }}</li>
+  </ul>
 </div>

@@ -55,20 +55,30 @@
       }
     }
 
-    &__errorMessage {
+    &__errors {
       width: 100%;
       font-size: 12px;
       font-style: italic;
       color: #f00;
       margin: 2px 0 6px;
+      list-style: none;
     }
 
-    &.-focus {
-      & .a-formField {
-        &__input {
-          border-bottom: 2px solid $navy;
-        }
+    &:after {
+      content: '';
+      display: block;  
+      border-bottom: 2px solid transparent;
+      position: absolute;
+      left: 8px;
+      right: 8px;
+      bottom: 2px;
+      transition: border 500ms ease;
       }
+
+    &.-focus {
+      &:after {  
+        border-bottom: 2px solid $navy;
+        }
     }
 
     &.-valid {

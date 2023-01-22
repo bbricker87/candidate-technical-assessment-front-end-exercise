@@ -1,15 +1,18 @@
-<div class="m-loginForm">
+<form [formGroup]="loginForm" class="m-loginForm">
   <gaggle-form-field
     class="m-loginForm__field"
     type="text"
     label="Username"
     id="#username"
+    [control]="username"
   ></gaggle-form-field>
   <gaggle-form-field
     class="m-loginForm__field"
     type="password"
     label="Password"
     id="#password"
+    [control]="password"
+    patternError="must only include numbers and digits"
   ></gaggle-form-field>
   <div class="m-loginForm__checkbox a-checkbox">
     <input type="checkbox" class="a-checkbox__input" /><span
@@ -20,4 +23,4 @@
   <button mat-raised-button color="primary" class="m-loginForm__button">
     Sign On
   </button>
-</div>
+</form>

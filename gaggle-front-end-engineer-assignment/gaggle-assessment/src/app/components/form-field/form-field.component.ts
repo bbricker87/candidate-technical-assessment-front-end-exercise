@@ -1,4 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  AbstractControl,
+  FormControl,
+  FormGroupDirective,
+} from '@angular/forms';
 
 @Component({
   selector: 'gaggle-form-field',
@@ -12,9 +17,14 @@ export class FormFieldComponent {
   @Input() type: string = '';
   @Input() label: string = '';
   @Input() placeholder: string = '';
-  @Input() value: string = '';
-  @Input() error: string = 'test';
-  @Input() isValid: boolean = true;
+  @Input() control: FormControl = new FormControl('');
+  @Input() patternError?: string = '';
+
+  ngOnInit(): void {}
+
+  ngOnChanges() {
+    console.log(this.control);
+  }
 
   onFocus = () => {
     this.hasFocus = true;
@@ -25,6 +35,6 @@ export class FormFieldComponent {
   };
 
   clearValue = () => {
-    this.value = '';
+    this.control.reset();
   };
 }

@@ -13,6 +13,7 @@ import { ComponentsModule } from './shared/components.module';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { FormFieldComponent } from './components/form-field/form-field.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { FormFieldComponent } from './components/form-field/form-field.component
     ComponentsModule,
     MaterialModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
