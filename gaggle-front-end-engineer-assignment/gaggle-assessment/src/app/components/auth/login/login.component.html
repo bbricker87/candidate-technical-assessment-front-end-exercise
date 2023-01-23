@@ -18,10 +18,11 @@
     patternError="must only include numbers and digits"
   ></gaggle-form-field>
   <div class="m-loginForm__checkbox a-checkbox">
-    <input type="checkbox" class="a-checkbox__input" /><span
-      class="a-checkbox__label"
-      >Remember</span
-    >
+    <input
+      type="checkbox"
+      class="a-checkbox__input"
+      [formControl]="remember"
+    /><span class="a-checkbox__label">Remember</span>
   </div>
   <button
     mat-raised-button

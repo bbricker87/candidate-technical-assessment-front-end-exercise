@@ -71,6 +71,31 @@
       list-style: none;
     }
 
+    &__passwordVisibility {
+      display: flex;
+      font-size: 12px;
+      font-weight: 500;
+      color: $dark-gray;
+      align-items: center;
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      cursor: pointer;
+      transition: color 400ms ease;
+
+      &__icon {
+        $visibility-icon-size: 14px;
+        width: $visibility-icon-size;
+        height: $visibility-icon-size;
+        font-size: calc($visibility-icon-size - 2px);
+        margin: 0 2px 0 0;
+      }
+
+      &:hover {
+        color: $orange;
+      }
+    }
+
     &:after {
       content: "";
       display: block;
@@ -95,7 +120,8 @@
     &.-error {
       & .a-formField {
         &__input,
-        &__clear {
+        &__clear,
+        &__passwordVisibility__icon {
           border: 1px inset rgba(255, 0, 0, 0.25);
           background-color: rgba(255, 0, 0, 0.25);
         }

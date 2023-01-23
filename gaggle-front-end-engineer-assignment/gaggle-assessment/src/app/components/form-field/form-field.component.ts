@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, SimpleChange, SimpleChanges } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -8,6 +8,7 @@ import { FormControl } from '@angular/forms';
 })
 export class FormFieldComponent {
   public hasFocus = false;
+  public displayType = 'text';
 
   @Input() id: string = '';
   @Input() type: string = '';
@@ -15,6 +16,19 @@ export class FormFieldComponent {
   @Input() placeholder: string = '';
   @Input() control: FormControl = new FormControl('');
   @Input() patternError?: string = '';
+  @Input() displayTypeToggle?: boolean = false;
+
+  ngOnInit() {
+    this.displayType = this.type;
+  }
+
+  togglePassword = () => {
+    if (this.displayType === 'text') {
+      this.displayType = 'password';
+    } else {
+      this.displayType = 'text';
+    }
+  };
 
   onFocus = () => {
     this.hasFocus = true;

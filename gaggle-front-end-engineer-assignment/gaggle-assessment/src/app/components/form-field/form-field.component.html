@@ -12,7 +12,7 @@
   <input
     class="a-formField__input"
     [id]="id"
-    [type]="type"
+    [type]="displayType"
     [placeholder]="placeholder"
     [ariaLabel]="label"
     [formControl]="control"
@@ -25,6 +25,24 @@
     (click)="clearValue()"
     >close</mat-icon
   >
+  <div
+    class="a-formField__passwordVisibility"
+    *ngIf="type === 'password'"
+    (click)="togglePassword()"
+  >
+    <mat-icon
+      class="a-formField__passwordVisibility__icon"
+      *ngIf="displayType === 'password'"
+      >visibility</mat-icon
+    >
+    <mat-icon
+      class="a-formField__passwordVisibility__icon"
+      *ngIf="displayType === 'text'"
+      >visibility_off</mat-icon
+    >
+    <span *ngIf="displayType === 'password'">Show</span>
+    <span *ngIf="displayType === 'text'">Hide</span>
+  </div>
   <ul
     class="a-formField__errors"
     *ngIf="control && control.errors && !control.pristine"
