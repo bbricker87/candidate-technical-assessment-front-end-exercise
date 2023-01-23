@@ -32,7 +32,6 @@ export class RegisterAccountComponent implements OnInit {
         });
       }
 
-      console.log('Navigate to auth');
       this.router.navigate(['/auth']);
     });
   }

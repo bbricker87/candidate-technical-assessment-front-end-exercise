@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FormFieldComponent } from './form-field.component';
+import { MaterialModule } from '@app/shared/material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 describe('FormFieldComponent', () => {
   let component: FormFieldComponent;
@@ -8,9 +10,9 @@ describe('FormFieldComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FormFieldComponent ]
-    })
-    .compileComponents();
+      declarations: [FormFieldComponent],
+      imports: [MaterialModule, ReactiveFormsModule],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(FormFieldComponent);
     component = fixture.componentInstance;
